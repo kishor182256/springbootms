@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 @Data
 public class ProductRequest {
 
+    private Long productId;
     private String productName;
     private String description;
     private  Integer stockQuantity;
