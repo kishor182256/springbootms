@@ -1,13 +1,16 @@
 package com.spring.SpringBootApp.model;
 
 
+import com.spring.SpringBootApp.dto.ProductRequest;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class OrderItem {
 
     @ManyToOne
@@ -25,4 +28,6 @@ public class OrderItem {
     private  Orders order;
 
 
+    public OrderItem(Object o, ProductRequest product, Integer quantity, Orders order) {
+    }
 }
