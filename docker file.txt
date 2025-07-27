@@ -1,1 +1,13 @@
 mvn spring-boot:build-image "-Dspring-boot.build-image.imageName=kishor182256/springbootapp" "-Dspring-boot.build-image.environment.HTTP_PROXY=http://http.docker.internal:3128" "-Dspring-boot.build-image.environment.HTTPS_PROXY=http://http.docker.internal:3128" "-Dspring-boot.build-image.environment.NO_PROXY=localhost,127.0.0.1 -X"
+
+Get all images
+docker images
+
+Run Docker Locally in detached mode
+docker run -d -p 8080:8080 kishor182256/springbootapp
+
+Get Docker logs
+docker logs image_id(eg.588a4f4873e1a3cd082a57a2246a9f745e60f4aecf9f3955a41d11963344e5e1)(you will get after docker run -d -p 8080:8080 kishor182256/springbootapp)
+
+Stop Docker
+docker ps then docker stop imageid(eg.588a4f4873e1)
