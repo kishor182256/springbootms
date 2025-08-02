@@ -11,3 +11,9 @@ docker logs image_id(eg.588a4f4873e1a3cd082a57a2246a9f745e60f4aecf9f3955a41d1196
 
 Stop Docker
 docker ps then docker stop imageid(eg.588a4f4873e1)
+
+Configuring Docker To PLSQl
+
+
+postgres
+
