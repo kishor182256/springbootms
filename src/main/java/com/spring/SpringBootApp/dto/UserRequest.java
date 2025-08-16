@@ -9,6 +9,7 @@ public class UserRequest {
     private String name;
     private String email;
     private String role = "USER";
+    private String password;
 
     private AddressDto address;
 

@@ -6,77 +6,13 @@ spring:
   mvc:
     servlet:
       path: /api
-
   cloud:
     config:
       server:
         git:
-
           uri: https://github.com/kishor182256/cloudConfig
-#  datasource:
-#    url:  jdbc:postgresql://localhost:5432/springboot
-#    driver-class-name: org.postgresql.Driver
-#    username: postgres
-#    password: postgres
-#  jpa:
-#    database: postgresql
-#    show-sql: true
-#    properties:
-#      hibernate:
-#        dialect: org.hibernate.dialect.PostgreSQLDialect
-#        format_sql: true
-#        hibernate:
-#          ddl-auto: update
 
-#  h2:
-#    console:
-#      enabled: true
-#      path: /h2-console
-#
-#  jpa:
-#    hibernate:
-#      ddl-auto: update
-#    show-sql: true
-#    properties:
-#      hibernate:
-#        format_sql: true
-#
-#
-#
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include:
-#          - health
-#          - info
-#          - metrics
-#          - prometheus
-#          - flyway
-#          - beans
-#          - env
-#          - loggers
-#          - shutdown
-#  endpoint:
-#    health:
-#      show-details: always
-#    info:
-#      access:
-#  info:
-#    env:
-#      enabled: true
-#
-#info:
-#  app:
-#    name: SpringBootApp
-#    version: 1.0.0
-#    description: Spring Boot application with H2 and Actuator
-#
-#build:
-#  id: ${BUILD_ID}
-#  version: ${BUILD_VERSION}
-#  name: ${BUILD_NAME}
-
-
-
+jwt:
+  secret: afafasfafafasfasfasfafacasdasfasxASFACASDFACASDFASFASFDAFASFASDAADSCSDFADCVSGCFVADXCcadwavfsfarvf
+  validity: 18000
 

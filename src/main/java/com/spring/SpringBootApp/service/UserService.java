@@ -9,6 +9,7 @@ import com.spring.SpringBootApp.model.User;
 import com.spring.SpringBootApp.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +20,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class UserService {
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     private final UserRepository userRepository;
 
@@ -31,6 +34,7 @@ public class UserService {
 
     public void addUser(UserRequest userRequest) {
         User user = new User();
+        user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
         updateUserFromRequest(user, userRequest);
         userRepository.save(user);
         ;
