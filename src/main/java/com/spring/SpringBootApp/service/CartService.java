@@ -1,5 +1,6 @@
 package com.spring.SpringBootApp.service;
 
+import com.spring.SpringBootApp.exception.UserNotFoundException;
 import com.spring.SpringBootApp.model.CartItem;
 import com.spring.SpringBootApp.model.Product;
 import com.spring.SpringBootApp.model.User;
@@ -41,7 +42,7 @@ public class CartService {
         Long productId = cartItemDto.getProduct().getProductId();
 
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new IllegalArgumentException("User not found with id: " + userId));
+                .orElseThrow(() -> new UserNotFoundException(userId));
 
         Product product = productRepository.findById(productId)
                 .orElseThrow(() -> new IllegalArgumentException("Product not found with id: " + productId));
