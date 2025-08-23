@@ -66,7 +66,7 @@ public class UserController {
             );
 
             UserDetails userDetails = userDetailsService.loadUserByUsername(request.getEmail());
-            String token = jwtHelper.generateToken(userDetails.getUsername());// internally uses userDetails.getUsername()
+            String token = jwtHelper.generateToken(userDetails);
 
             return new AuthResponse(token);
 

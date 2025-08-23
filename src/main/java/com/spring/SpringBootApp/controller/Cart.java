@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -21,8 +22,8 @@ public class Cart {
     }
 
     @GetMapping("/cart/{userId}")
-    public ResponseEntity<List<com.spring.SpringBootApp.dto.CartItem>> getCartItems(@PathVariable Long userId) {
-        List<com.spring.SpringBootApp.dto.CartItem> items = cartService.getCartItemsByUserId(userId);
+    public ResponseEntity<List<com.spring.SpringBootApp.dto.CartItem>> getCartItems(@PathVariable Long userId, Principal principal) {
+        List<com.spring.SpringBootApp.dto.CartItem> items = cartService.getCartItemsByUserId(userId,principal);
         return ResponseEntity.ok(items);
     }
 

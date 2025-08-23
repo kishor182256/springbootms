@@ -35,6 +35,7 @@ public class UserService {
     public void addUser(UserRequest userRequest) {
         User user = new User();
         user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
+        user.setRole(UserRole.valueOf(userRequest.getRole()));
         updateUserFromRequest(user, userRequest);
         userRepository.save(user);
         ;

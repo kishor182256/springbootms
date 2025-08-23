@@ -8,9 +8,12 @@ import com.spring.SpringBootApp.repository.ProductRepository;
 import com.spring.SpringBootApp.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Type;
+import java.security.Principal;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,6 +29,8 @@ public class CartService {
 
     @Autowired
     private ProductRepository productRepository;
+
+
 
 
     @Autowired
@@ -53,7 +58,15 @@ public class CartService {
 
 
 
-    public List<com.spring.SpringBootApp.dto.CartItem> getCartItemsByUserId(Long userId) {
+    public List<com.spring.SpringBootApp.dto.CartItem> getCartItemsByUserId(Long userId,Principal principal) {
+        String loggedInEmail = principal.getName();
+        Long loggedInUserId = userRepository.findByEmail(loggedInEmail)
+                .map(User::getId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        if (!loggedInUserId.equals(userId)) {
+            return (List<com.spring.SpringBootApp.dto.CartItem>) ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        }
         List<com.spring.SpringBootApp.dto.CartItem> dtoList = cartItemRepository.findByUserId(userId).stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());

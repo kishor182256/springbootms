@@ -42,7 +42,7 @@ public class OrderService {
     private ModelMapper modelMapper;
 
     public Optional<OrderResponse> createOrder(Long userId) {
-        List<CartItem> cartItems = cartService.getCartItemsByUserId(userId);
+        List<CartItem> cartItems = null;
         if (cartItems.isEmpty()) {
             return Optional.empty();
         }

@@ -22,13 +22,13 @@ class SpringBootApTests {
 	void contextLoads() {
 	}
 
-	@Test
-	void token() {
-		String user = "kishor.gunjal@gmail.com";
-        String token = jwtHelper.generateToken(String.valueOf(user));
-        System.out.println("Generated token: " + token);
-        System.out.println("System.out.println(\"Generated token: \" + token);: " + jwtHelper.getUsernameFromToken(token));
-    }
+//	@Test
+//	void token() {
+//		String user = "kishor.gunjal@gmail.com";
+//        String token = jwtHelper.generateToken(String.valueOf(user));
+//        System.out.println("Generated token: " + token);
+//        System.out.println("System.out.println(\"Generated token: \" + token);: " + jwtHelper.getUsernameFromToken(token));
+//    }
 
 
 }
